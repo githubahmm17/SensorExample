@@ -17,5 +17,7 @@
         Chris P. Bowers
     </author>
 	
+		<plugin name="cordova-plugin-device-motion" />
+	
 
 </widget>
