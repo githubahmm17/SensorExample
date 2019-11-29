@@ -29,11 +29,8 @@ $(document).on("pagecreate", "#page1", function () {
 
 
 function startSensor() {	
-	watchID = navigator.accelerometer.watchAcceleration( accelerometerSuccess, accelerometerError, accelerometerOptions);
-	
-	
+	watchID = navigator.accelerometer.watchAcceleration( accelerometerSuccess, accelerometerError, accelerometerOptions);	
 }
-
 
 function stopSensor() {
 	navigator.accelerometer.clearWatch(watchID);
@@ -58,12 +55,14 @@ function accelerometerError() {
 }
 
 function updateFreq(freq) {
-	//do something to update freq. here.
-	
+	//do something to update freq. here.	
+	//stop the event listener 
 	stopSensor();
 	
+	//make changes to the slider
 	accelerometerOptions.frequency = freq ;
 	
+	//start the event listener again
 	startSensor();
 }
 
