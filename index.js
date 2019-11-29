@@ -28,8 +28,10 @@ $(document).on("pagecreate", "#page1", function () {
 });
 
 
-function startSensor() {
+function startSensor() {	
 	watchID = navigator.accelerometer.watchAcceleration( accelerometerSuccess, accelerometerError, accelerometerOptions);
+	
+	
 }
 
 
@@ -57,7 +59,12 @@ function accelerometerError() {
 
 function updateFreq(freq) {
 	//do something to update freq. here.
-	accelerometerOptions.frequency = parseInt($(this).val(freq)) ;
+	
+	stopSensor();
+	
+	accelerometerOptions.frequency = freq ;
+	
+	startSensor();
 }
 
 
